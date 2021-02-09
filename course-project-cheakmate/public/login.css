@@ -1,0 +1,55 @@
+/* @Author: Alex */
+
+ /*body {
+    background-image: url('images/Default.jpg');
+    object-fit: cover;
+    background-attachment: fixed;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+  
+  h1{
+    text-align: center;
+  }
+  
+  div {
+      text-align: center;
+  }
+
+  .info {
+      border: 2px solid black;
+      padding: 10px 10px 10px 10px;
+      background: rgba(0, 0, 26, 0.5);
+      font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+
+  .info [type = text], [type = password], [type = button] {
+    border: 1px solid black;
+    padding: 10px 10px 10px 10px;
+    background: transparent;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+
+  .info [type = text]:hover, [type = password]:hover {
+    background: white;
+    color: black;
+  }
+  
+  .info [type = button]:hover {
+    background: rgba(0, 0, 26, 0.75);
+    color: white;
+    border: 0px solid white;
+  }
+
+  button{
+    border: 0px solid black;
+    text-decoration: none;
+    padding: 10px 10px 10px 10px;
+    background: rgba(0, 0, 26, 0.5);
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+  
+ button:hover{
+    background: rgba(0, 0, 26, 0.75);
+    color: white;
+    border: 2px solid white;
+  } */

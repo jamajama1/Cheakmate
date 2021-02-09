@@ -1,0 +1,126 @@
+<!--@Author: Alam-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset = "UTF-8">
+    <title> Rules | How To Play </title>
+    <link rel = "stylesheet" href = "instruct.css">
+</head>
+
+<body>
+  <div class="content">
+    <h1> How to Play </h1>
+    <hr>
+      <a href="index.html"><button type="button" name="button" class="choice"> Main Menu </button></a>
+    <br><hr>
+      <h2>Basics</h2>
+      <p>
+        Cheakmates for Checkmates is a game that is aimed to elevate the normal chess playing experience.<br>
+        The objective of the game is to capture the other teams king before they capture yours. <br>
+        Each player has 16 pieces that range between a variety of differnt types they they can use. <br>
+        The board is 10x10 instead of the classic 8x8 board allowing for more room try new strats.<br>
+        The game also features modifiers that include power ups and blocked spaces that change how you play.
+      </p>
+    <br><hr>
+      <h2>Pieces</h2>
+      <p>In total there are 6 different pieces and each player gets a total of 16 pieces</p>  
+      <table class = "piece">
+        <tr>
+          <td><h3>Chess Pieces</h3></td><td><h3>Piece Function</h3></td>
+        </tr>
+        <tr>
+          <td class = "pic">
+            <img src = "images/sprites/rpw.png" alt = "Pawn" ><img src = "images/sprites/rpb.png" alt = "Pawn" ></td>
+          <td>
+            <b>Pawn</b>&nbsp(8x)<br>
+            Each team has 8 pawns that can only move foward by one space. <br>
+            If it's the pawns first move, the pawn can move one or 2 spaces. <br>
+            Lastly pawns can only attack diagonally right or left but not in front.<br>
+            If a pawn reaches the other end of the board it can relcaim a captured piece.
+          </td>
+        </tr>
+        <tr>
+          <td class = "pic">
+            <img src = "images/sprites/row.png" alt = "Rook" ><img src = "images/sprites/rob.png" alt = "Rook" ></td>
+          <td>
+            <b>Rook</b>&nbsp(2x)<br>
+            Each team has 2 rooks that can move up, right, left, and down.<br>
+            The rook can keep going as long as nothing is blocking its path.
+          </td>
+        </tr>
+        <tr>
+          <td class = "pic">
+            <img src = "images/sprites/rhw.png" alt = "Bishop" ><img src = "images/sprites/rhb.png" alt = "Bishop" ></td>
+          <td>
+            <b>Bishop</b>&nbsp(2x)<br>
+            Each team has 2 bishops that can move diagonally up left, up right, down left,<br> 
+            or down right. The bishop can keep going as long as nothing is blocking its path.
+          </td>
+        </tr>
+        <tr>
+          <td class = "pic">
+            <img src = "images/sprites/rkw.png" alt = "Knight" ><img src = "images/sprites/rkb.png" alt = "Knight" ></td>
+          <td>
+            <b>Knight</b>&nbsp(2x)<br>
+            Each team has 2 knights that can move in an L shape in any difection.<br>
+            The knight must move 2 tiles in one direction and then 3 in another <br>
+            or vise versa without the ability to reverse. The horse is the only piece <br>
+            that does not have collision allowing it to jump over other pieces.
+          </td>
+        </tr>
+        <tr>
+          <td class = "pic">
+            <img src = "images/sprites/rqw.png" alt = "Queen" ><img src = "images/sprites/rqb.png" alt = "Queen" ></td>
+          <td>
+            <b>Queen</b>&nbsp(1x)<br>
+            Each team has a queen that can move in any direction.<br>
+            The queen can keep going as long as nothing is blocking its path.
+          </td>
+        </tr>
+        <tr>
+          <td class = "pic">
+            <img src = "images/sprites/rgw.png" alt = "King" ><img src = "images/sprites/rgb.png" alt = "King" ></td>
+          <td>
+            <b>King</b>&nbsp(1x)<br>
+            Each team has a King that can move in any direction.<br>
+            The king can only move one tile at a time. <br>
+            If the king is killed then the game ends.
+          </td>
+        </tr>       
+      </table>
+    <br><hr>
+      <h2>Modifiers</h2>
+      <table>
+        <tr>
+          <td><h3>Power Up/Event</h3></td><td><h3>Event Function</h3></td>
+        </tr>
+        <tr>
+          <td><img class = "pic" src = "images/sprites/sp1.png"></td>
+          <td>This special event exchanges my chess piece with my opponent's chess piece.</td>
+        </tr>
+        <tr>
+          <td><img class = "pic" src = "images/sprites/sp2.png"></td>
+          <td>This special event allows the player to play another turn.</td>
+        </tr>
+        <tr>
+          <td><img class = "pic" src = "images/sprites/sp3.png"></td>
+          <td>This special event transforms the chess piece into a random chess piece.</td>
+        </tr>
+          <td><img class = "pic" src = "images/sprites/sp4.png"></td>
+          <td>This special event blocks out a tile so a chess piece can't move there.</td>
+        </tr>
+      </table>
+    <br><hr>
+      <h2>Timer</h2>
+      <p>Each player has 2 minutes to complete their turn. If you fail to complete a move in the time the game will end.</p>
+    <br><hr>
+      <h2>Winning Condition</h2>
+      <p>The game will end when a piece of one team captures the king of the other team.</p>
+    <br><hr> 
+
+    <a href="index.html"><button type="button" name="button" class="choice"> Main Menu </button></a>
+  </div>
+</body>
+
+</html>

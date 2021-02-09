@@ -1,0 +1,299 @@
+<!--@Author: Alam-->
+<!--@Editor: Kat-->
+<!--@Editor: Alex-->
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<meta charset = "UTF-8">
+	<title> Game | Unconventional Chess </title>
+	<link rel = "stylesheet" href = "game.css">
+	<script src="game.js"></script>
+	<!--<script src="temp.js"></script>-->
+	<script src="settings.js"></script>
+	<script>
+		/*placeholders of the time*/
+		var seconds = 0;
+        var minutes = 0;
+        var hours = 0;
+        /*showing time in the 00:00:00 format using the placeholders*/
+        var showSeconds = 0;
+        var showMinutes = 0;
+        var showHours = 0;
+        var counter = setInterval(function() {
+            seconds += 1;
+            if (seconds/60 == 1) {
+                seconds = 0; /*set seconds back to 0*/
+                minutes += 1;
+                if (minutes/60 == 1) {
+                    minutes = 0; /*set minutes back to 0*/
+                    hours += 1;
+                }
+            }
+            /*Showing the 00:00:00 format*/
+            if (seconds < 10) {
+                showSeconds = "0" + seconds.toString();
+            }
+            else {
+                showSeconds = seconds;
+            }
+            if (minutes < 10) {
+                showMinutes = "0" + minutes.toString();
+            }
+            else {
+                showMinutes = minutes;
+            }
+            if (hours < 10) {
+                showHours = "0" + hours.toString();
+            }
+            else {
+                showHours = hours;
+            }
+            document.getElementById("time").innerHTML = showHours + ":" + showMinutes + ":" + showSeconds;
+        }, 1000);
+	</script>
+</head>
+
+<body onload = "initialize()">
+		<ul>
+			<li><button type="button" name="button" onclick="visibility('special-events')" class="navbar">Power Guide</button></li>
+			<li><button type="button" name="button" onclick="visibility('pref')" class = "navbar" >Settings</button></li>
+			<li><button type="button" name="button" onclick="exit()" class = "navbar" >Exit Game</button></li>
+		</ul>
+		<br>
+
+	<!--Temporary solution to changing settings-->
+	<div id="pref">
+	<h1> SETTINGS </h1>
+
+	<hr>
+
+	<p>Adjust Board Screen</p>
+	<button type="button" name="button" onclick="toCenter()" class="choice"> Default </button>
+	<button type="button" name="button" onclick="toLeft()" class="choice"> Adjust Board Left </button>
+	<button type="button" name="button" onclick="toRight()" class="choice"> Adjust Board Right </button>
+
+	<br>
+
+	<p>Adjust Background</p>
+	<button type="button" name="button" onclick="toChessBg()" class="choice"> Default BG </button>
+	<button type="button" name="button" onclick="toLakeBg()" class="choice"> Lake BG </button>
+	<button type="button" name="button" onclick="toGalaxyBg()" class="choice"> Galaxy BG </button>
+
+	<hr><br>
+	</div>
+
+	<br>
+	<div id = "turn">
+		<h1 id="player">Current Player: {player}</h1>
+		<hr>
+		<p id = "time">00:00:00</p>
+	</div>
+	<br>
+
+	<div id = "special-events">
+		<table>
+			<tr id="special-events-row">
+				<td><img class="pUp" id = "sp00" src = "images/sprites/sp1.png"></td>
+				<td><img class="pUp" id = "sp01" src = "images/sprites/sp2.png"></td>
+				<td><img class="pUp" id = "sp02" src = "images/sprites/sp3.png"></td>
+				<td><img class="pUp" id = "sp02" src = "images/sprites/sp4.png"></td>
+			</tr>
+			<tr id="special-events-row">
+				<td class="pUpDesc">This special event exchanges my chess piece with my opponent's chess piece.</td>
+				<td class="pUpDesc">This special event allows the player to play another turn.</td>
+				<td class="pUpDesc">This special event transforms the chess piece into a random chess piece.</td>
+				<td class="pUpDesc">This special event blocks out a tile so a chess piece can't move there.</td>
+			</tr>
+		</table>
+	</div>
+
+	<br>
+
+	<div id = "board">
+		<table>
+			<tr>
+				<td><img id = "00" src="//:0" alt="null" onclick="runGame('00')"></td>
+				<td><img id = "01" src="//:0" alt="null" onclick="runGame('01')"></td>
+				<td><img id = "02" src="//:0" alt="null" onclick="runGame('02')"></td>
+				<td><img id = "03" src="//:0" alt="null" onclick="runGame('03')"></td>
+				<td><img id = "04" src="//:0" alt="null" onclick="runGame('04')"></td>
+				<td><img id = "05" src="//:0" alt="null" onclick="runGame('05')"></td>
+				<td><img id = "06" src="//:0" alt="null" onclick="runGame('06')"></td>
+				<td><img id = "07" src="//:0" alt="null" onclick="runGame('07')"></td>
+				<td><img id = "08" src="//:0" alt="null" onclick="runGame('08')"></td>
+				<td><img id = "09" src="//:0" alt="null" onclick="runGame('09')"></td>
+			</tr>
+			<tr>
+				<td><img id = "10" src="//:0" alt="null" onclick="runGame('10')"></td>
+				<td><img id = "11" src="//:0" alt="null" onclick="runGame('11')"></td>
+				<td><img id = "12" src="//:0" alt="null" onclick="runGame('12')"></td>
+				<td><img id = "13" src="//:0" alt="null" onclick="runGame('13')"></td>
+				<td><img id = "14" src="//:0" alt="null" onclick="runGame('14')"></td>
+				<td><img id = "15" src="//:0" alt="null" onclick="runGame('15')"></td>
+				<td><img id = "16" src="//:0" alt="null" onclick="runGame('16')"></td>
+				<td><img id = "17" src="//:0" alt="null" onclick="runGame('17')"></td>
+				<td><img id = "18" src="//:0" alt="null" onclick="runGame('18')"></td>
+				<td><img id = "19" src="//:0" alt="null" onclick="runGame('19')"></td>
+			</tr>
+			<tr>
+				<td><img id = "20" src="//:0" alt="null" onclick="runGame('20')"></td>
+				<td><img id = "21" src="//:0" alt="null" onclick="runGame('21')"></td>
+				<td><img id = "22" src="//:0" alt="null" onclick="runGame('22')"></td>
+				<td><img id = "23" src="//:0" alt="null" onclick="runGame('23')"></td>
+				<td><img id = "24" src="//:0" alt="null" onclick="runGame('24')"></td>
+				<td><img id = "25" src="//:0" alt="null" onclick="runGame('25')"></td>
+				<td><img id = "26" src="//:0" alt="null" onclick="runGame('26')"></td>
+				<td><img id = "27" src="//:0" alt="null" onclick="runGame('27')"></td>
+				<td><img id = "28" src="//:0" alt="null" onclick="runGame('28')"></td>
+				<td><img id = "29" src="//:0" alt="null" onclick="runGame('29')"></td>
+			</tr>
+			<tr>
+				<td><img id = "30" src="//:0" alt="null" onclick="runGame('30')"></td>
+				<td><img id = "31" src="//:0" alt="null" onclick="runGame('31')"></td>
+				<td><img id = "32" src="//:0" alt="null" onclick="runGame('32')"></td>
+				<td><img id = "33" src="//:0" alt="null" onclick="runGame('33')"></td>
+				<td><img id = "34" src="//:0" alt="null" onclick="runGame('34')"></td>
+				<td><img id = "35" src="//:0" alt="null" onclick="runGame('35')"></td>
+				<td><img id = "36" src="//:0" alt="null" onclick="runGame('36')"></td>
+				<td><img id = "37" src="//:0" alt="null" onclick="runGame('37')"></td>
+				<td><img id = "38" src="//:0" alt="null" onclick="runGame('38')"></td>
+				<td><img id = "39" src="//:0" alt="null" onclick="runGame('39')"></td>
+			</tr>
+			<tr>
+				<td><img id = "40" src="//:0" alt="null" onclick="runGame('40')"></td>
+				<td><img id = "41" src="//:0" alt="null" onclick="runGame('41')"></td>
+				<td><img id = "42" src="//:0" alt="null" onclick="runGame('42')"></td>
+				<td><img id = "43" src="//:0" alt="null" onclick="runGame('43')"></td>
+				<td><img id = "44" src="//:0" alt="null" onclick="runGame('44')"></td>
+				<td><img id = "45" src="//:0" alt="null" onclick="runGame('45')"></td>
+				<td><img id = "46" src="//:0" alt="null" onclick="runGame('46')"></td>
+				<td><img id = "47" src="//:0" alt="null" onclick="runGame('47')"></td>
+				<td><img id = "48" src="//:0" alt="null" onclick="runGame('48')"></td>
+				<td><img id = "49" src="//:0" alt="null" onclick="runGame('49')"></td>
+			</tr>
+			<tr>
+				<td><img id = "50" src="//:0" alt="null" onclick="runGame('50')"></td>
+				<td><img id = "51" src="//:0" alt="null" onclick="runGame('51')"></td>
+				<td><img id = "52" src="//:0" alt="null" onclick="runGame('52')"></td>
+				<td><img id = "53" src="//:0" alt="null" onclick="runGame('53')"></td>
+				<td><img id = "54" src="//:0" alt="null" onclick="runGame('54')"></td>
+				<td><img id = "55" src="//:0" alt="null" onclick="runGame('55')"></td>
+				<td><img id = "56" src="//:0" alt="null" onclick="runGame('56')"></td>
+				<td><img id = "57" src="//:0" alt="null" onclick="runGame('57')"></td>
+				<td><img id = "58" src="//:0" alt="null" onclick="runGame('58')"></td>
+				<td><img id = "59" src="//:0" alt="null" onclick="runGame('59')"></td>
+			</tr>
+			<tr>
+				<td><img id = "60" src="//:0" alt="null" onclick="runGame('60')"></td>
+				<td><img id = "61" src="//:0" alt="null" onclick="runGame('61')"></td>
+				<td><img id = "62" src="//:0" alt="null" onclick="runGame('62')"></td>
+				<td><img id = "63" src="//:0" alt="null" onclick="runGame('63')"></td>
+				<td><img id = "64" src="//:0" alt="null" onclick="runGame('64')"></td>
+				<td><img id = "65" src="//:0" alt="null" onclick="runGame('65')"></td>
+				<td><img id = "66" src="//:0" alt="null" onclick="runGame('66')"></td>
+				<td><img id = "67" src="//:0" alt="null" onclick="runGame('67')"></td>
+				<td><img id = "68" src="//:0" alt="null" onclick="runGame('68')"></td>
+				<td><img id = "69" src="//:0" alt="null" onclick="runGame('69')"></td>
+			</tr>
+			<tr>
+				<td><img id = "70" src="//:0" alt="null" onclick="runGame('70')"></td>
+				<td><img id = "71" src="//:0" alt="null" onclick="runGame('71')"></td>
+				<td><img id = "72" src="//:0" alt="null" onclick="runGame('72')"></td>
+				<td><img id = "73" src="//:0" alt="null" onclick="runGame('73')"></td>
+				<td><img id = "74" src="//:0" alt="null" onclick="runGame('74')"></td>
+				<td><img id = "75" src="//:0" alt="null" onclick="runGame('75')"></td>
+				<td><img id = "76" src="//:0" alt="null" onclick="runGame('76')"></td>
+				<td><img id = "77" src="//:0" alt="null" onclick="runGame('77')"></td>
+				<td><img id = "78" src="//:0" alt="null" onclick="runGame('78')"></td>
+				<td><img id = "79" src="//:0" alt="null" onclick="runGame('79')"></td>
+			</tr>
+			<tr>
+				<td><img id = "80" src="//:0" alt="null" onclick="runGame('80')"></td>
+				<td><img id = "81" src="//:0" alt="null" onclick="runGame('81')"></td>
+				<td><img id = "82" src="//:0" alt="null" onclick="runGame('82')"></td>
+				<td><img id = "83" src="//:0" alt="null" onclick="runGame('83')"></td>
+				<td><img id = "84" src="//:0" alt="null" onclick="runGame('84')"></td>
+				<td><img id = "85" src="//:0" alt="null" onclick="runGame('85')"></td>
+				<td><img id = "86" src="//:0" alt="null" onclick="runGame('86')"></td>
+				<td><img id = "87" src="//:0" alt="null" onclick="runGame('87')"></td>
+				<td><img id = "88" src="//:0" alt="null" onclick="runGame('88')"></td>
+				<td><img id = "89" src="//:0" alt="null" onclick="runGame('89')"></td>
+			</tr>
+			<tr>
+				<td><img id = "90" src="//:0" alt="null" onclick="runGame('90')"></td>
+				<td><img id = "91" src="//:0" alt="null" onclick="runGame('91')"></td>
+				<td><img id = "92" src="//:0" alt="null" onclick="runGame('92')"></td>
+				<td><img id = "93" src="//:0" alt="null" onclick="runGame('93')"></td>
+				<td><img id = "94" src="//:0" alt="null" onclick="runGame('94')"></td>
+				<td><img id = "95" src="//:0" alt="null" onclick="runGame('95')"></td>
+				<td><img id = "96" src="//:0" alt="null" onclick="runGame('96')"></td>
+				<td><img id = "97" src="//:0" alt="null" onclick="runGame('97')"></td>
+				<td><img id = "98" src="//:0" alt="null" onclick="runGame('98')"></td>
+				<td><img id = "99" src="//:0" alt="null" onclick="runGame('99')"></td>
+			</tr>
+		</table>
+
+		<br>
+
+		<!-- added white chess piece player count down timer -->
+		<div id = whiteCapturedPieces>
+			<div id = playerTime>White Chess Piece Player Timer: </div>
+			<div id = whiteTimer>2:00</div>
+			<table>
+				<tr>
+					<td><img id = "w00" src="images/sprites/r.png" onclick="promote('w00')"></td>
+					<td><img id = "w01" src="images/sprites/r.png" onclick="promote('w01')"></td>
+					<td><img id = "w02" src="images/sprites/r.png" onclick="promote('w02')"></td>
+					<td><img id = "w03" src="images/sprites/r.png" onclick="promote('w03')"></td>
+					<td><img id = "w04" src="images/sprites/r.png" onclick="promote('w04')"></td>
+					<td><img id = "w05" src="images/sprites/r.png" onclick="promote('w05')"></td>
+					<td><img id = "w06" src="images/sprites/r.png" onclick="promote('w06')"></td>
+					<td><img id = "w07" src="images/sprites/r.png" onclick="promote('w07')"></td>
+				</tr>
+
+				<tr>
+					<td><img id = "w10" src="images/sprites/r.png" onclick="promote('w10')"></td>
+					<td><img id = "w11" src="images/sprites/r.png" onclick="promote('w11')"></td>
+					<td><img id = "w12" src="images/sprites/r.png" onclick="promote('w12')"></td>
+					<td><img id = "w13" src="images/sprites/r.png" onclick="promote('w13')"></td>
+					<td><img id = "w14" src="images/sprites/r.png" onclick="promote('w14')"></td>
+					<td><img id = "w15" src="images/sprites/r.png" onclick="promote('w15')"></td>
+					<td><img id = "w16" src="images/sprites/r.png" onclick="promote('w16')"></td>
+					<td><img id = "w17" src="images/sprites/r.png" onclick="promote('w17')"></td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- added black chess piece player count down timer -->
+		<div id = blackCapturedPieces>
+			<div id = playerTime>Black Chess Piece Player Timer: </div>
+			<div id = blackTimer>2:00</div>
+			<table>
+				<tr>
+					<td><img id = "b00" src="images/sprites/r.png" onclick="promote('b00')"></td>
+					<td><img id = "b01" src="images/sprites/r.png" onclick="promote('b01')"></td>
+					<td><img id = "b02" src="images/sprites/r.png" onclick="promote('b02')"></td>
+					<td><img id = "b03" src="images/sprites/r.png" onclick="promote('b03')"></td>
+					<td><img id = "b04" src="images/sprites/r.png" onclick="promote('b04')"></td>
+					<td><img id = "b05" src="images/sprites/r.png" onclick="promote('b05')"></td>
+					<td><img id = "b06" src="images/sprites/r.png" onclick="promote('b06')"></td>
+					<td><img id = "b07" src="images/sprites/r.png" onclick="promote('b07')"></td>
+				</tr>
+
+				<tr>
+					<td><img id = "b10" src="images/sprites/r.png" onclick="promote('b10')"></td>
+					<td><img id = "b11" src="images/sprites/r.png" onclick="promote('b11')"></td>
+					<td><img id = "b12" src="images/sprites/r.png" onclick="promote('b12')"></td>
+					<td><img id = "b13" src="images/sprites/r.png" onclick="promote('b13')"></td>
+					<td><img id = "b14" src="images/sprites/r.png" onclick="promote('b14')"></td>
+					<td><img id = "b15" src="images/sprites/r.png" onclick="promote('b15')"></td>
+					<td><img id = "b16" src="images/sprites/r.png" onclick="promote('b16')"></td>
+					<td><img id = "b17" src="images/sprites/r.png" onclick="promote('b17')"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

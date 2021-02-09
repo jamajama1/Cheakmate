@@ -1,0 +1,68 @@
+<!--@Author: Kat-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Settings </title>
+    <script src="settings.js"></script>
+    <style>
+      body{
+        background-image: url('images/Default.jpg');
+        object-fit: cover;
+        background-attachment: fixed;
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+      }
+      hd1, p, div.pref{
+        text-align: center;
+      }
+      a:link, a:visited{
+        color: black;
+        text-decoration: none;
+      }
+      div.pref{
+        border-style: solid;
+        border-color: black;
+        padding: 10px 10px 10px 10px;
+        background: rgba(105, 105, 105, 0.5);
+        width: 50%;
+        position: relative;
+        margin: auto;
+      }
+      .choice{
+        border: none;
+        text-decoration: none;
+        padding: 10px 10px 10px 10px;
+        background: rgba(0, 0, 26, 0.5);
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+      }
+      p, button:hover{
+        background: rgba(0, 0, 26, 0.75);
+      }
+    </style>
+</head>
+
+<body>
+  <div class="pref">
+  <h1> SETTINGS </h1>
+
+  <hr>
+
+  <p>Adjust Board Screen</p>
+  <button type="button" name="button" onclick="toCenter()" class="choice"> Default </button>
+  <button type="button" name="button" onclick="toLeft()" class="choice"> Adjust Board Left </button>
+  <button type="button" name="button" onclick="toRight()" class="choice"> Adjust Board Right </button>
+
+  <br>
+
+  <p>Adjust Background</p>
+  <button type="button" name="button" onclick="toChessBg()" class="choice"> Default BG </button>
+  <button type="button" name="button" onclick="toLakeBg()" class="choice"> Lake BG </button>
+  <button type="button" name="button" onclick="toGalaxyBg()" class="choice"> Galaxy BG </button>
+
+  <hr><br>
+
+  <a href="index.html"><button type="button" name="button" class="choice"> Main Menu </button></a>
+  </div>
+</body>
+
+</html>
